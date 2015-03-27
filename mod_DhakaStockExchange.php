@@ -10,7 +10,9 @@
 // no direct access
 defined('_JEXEC') or die;
 
-require dirname(__FILE__).'/simple_html_dom.php';
+if (!function_exists('file_get_html') && !class_exists('simple_html_dom')){
+	require_once dirname(__FILE__).'/simple_html_dom.php';
+}
 // Params
 $speed = (float) $params->get('speed',6);
 $width = $params->get('width','100%');
