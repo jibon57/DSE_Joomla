@@ -2,7 +2,7 @@
 <extension type="module" version="2.5" client="site" method="upgrade">
 	<name>mod_DhakaStockExchange</name>
 	<author>Jibon Lawrence Costa</author>
-	<creationDate>July 29, 2014</creationDate>
+	<creationDate>Mar 29, 2015</creationDate>
 	<copyright>Copyright (C) HoiCoi Extension.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>jiboncosta57@gmail.com</authorEmail>
