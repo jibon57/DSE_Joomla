@@ -7,12 +7,13 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>jiboncosta57@gmail.com</authorEmail>
 	<authorUrl>www.hoicoimasti.com</authorUrl>
-	<version>2.1</version>
+	<version>3</version>
 	<description>Show Dhaka Stock Exchange Companies' share price index scroller in real time</description>
 	<files>
 		<filename module="mod_DhakaStockExchange">mod_DhakaStockExchange.php</filename>
 		<folder>tmpl</folder>
 		<folder>images</folder>
+		<folder>js</folder>
 		<filename>simple_html_dom.php</filename>
 		<filename>index.html</filename>
 		<filename>mod_DhakaStockExchange.xml</filename>
@@ -22,8 +23,16 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="speed" type="text" label="Speed of Slide" default="6" description="Speed of Slide. Default 6."/>
-				<field name="width" type="text" label="Slider Width" default="100%" description="You can put slider width here. Example: 500px or 600px or 70% etc. Default 100%"/>
+				<field name="speed" type="text" label="Speed of Slide" default="60" description="Speed of Slide. Default 60."/>
+				<field name="shownav" type="list" default="1"
+					label="Next Forwarder Option" description="Show Next Forwarder Nav Icon" >
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="jquery" type="list" default="0" label="Use jQuery" description="This module will need jQuery Library. Most of the templates are using jQuery. If your template isn't using or this module not working then you can choose Yes.">
+				  <option value="1">Yes</option>
+				  <option value="0">No</option>
+				</field>
 			</fieldset>
 			<fieldset name="advanced">
 				<field name="layout" type="modulelayout"
@@ -32,14 +41,13 @@
 				<field name="moduleclass_sfx" type="text"
 					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
 					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
-
+				
 				<field name="owncache" type="list" default="1"
 					label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC" >
 					<option value="1">JGLOBAL_USE_GLOBAL</option>
 					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING
 					</option>
 				</field>
-
 				<field name="cache_time" type="text" default="900"
 					label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
 			</fieldset>

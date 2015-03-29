@@ -8,20 +8,68 @@
 
 // no direct access
 defined('_JEXEC') or die;
+if ($params->get("jquery") == "1") {
+	if (version_compare(JVERSION,'3','<')) {
+		JFactory::getDocument()->addScript(JURI::base().'modules/mod_dhakastockexchange/js/jquery-1.11.2.min.js');
+	}else {
+		JHtml::_('jquery.framework');
+	}
+}	    
+JHtml::script(Juri::base() .'modules/mod_dhakastockexchange/js/jquery.scrollbox.min.js');
 ?>
+<script type="text/javascript">
+jQuery("document").ready(function() {
+	jQuery('#dcs_slide').scrollbox({
+	  direction: 'h',
+	  distance: 140,
+	  speed: <?php echo $speed; ?>,
+	  onMouseOverPause: true,
+	});
+	jQuery('#dcs_slide-backward').click(function () {
+	  jQuery('#dcs_slide').trigger('backward');
+	});
+	jQuery('#dcs_slide-forward').click(function () {
+	  jQuery('#dcs_slide').trigger('forward');
+	});
+});
+</script>
 
 <style type="text/css">
-
-.domstyle a{
+#dcs_slide {
+	width: auto;
+	height: 40px;
+	overflow: hidden;
+}
+#dcs_slide ul {
+	width: 1200px; !important
+	height: 100px;
+	overflow: hidden;
+	margin: 0;
+}
+#dcs_slide ul li {
+	height: 1.5em;
+	display: inline-block;
+}
+#dcs_slide .slide a{
 	display: inline-block;
 	text-decoration: none;
 	text-align: center;
 	width: 150px;
 	font-size: 13px;
 }
+.dcs_slide_nav img{
+	cursor: pointer;
+	height: 20px;
+}
+
 
 </style>
-
-<div class =" <?php echo $moduleclass_sfx; ?>">
-	<marquee onMouseOver="this.setAttribute('scrollamount', 0, 0);" OnMouseOut="this.setAttribute('scrollamount', <?php echo $speed; ?>, 0);" scrollamount="<?php echo $speed;?>" style="width: <?php echo $width; ?>"><?php print_r($result); ?></marquee>
+<?php 
+print_r($result);
+if ($shownav == 1){
+?>
+<div class='dcs_slide_nav'>
+	<img id="dcs_slide-backward" src="<?php Juri::base(); ?>modules/mod_dhakastockexchange/images/back.png" alt="Previous">
+	<img id="dcs_slide-forward" src="<?php Juri::base(); ?>modules/mod_dhakastockexchange/images/forward.png" alt="Next">
 </div>
+<?php } ?>
