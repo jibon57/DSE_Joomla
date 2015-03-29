@@ -27,10 +27,10 @@ foreach ($html->find('a[class=abhead]') as $key => $data) {
 	$data = strip_tags($data,"<a><img>"); // I want to take only link & image tags ;)
 	$data = str_replace("displayCompany.php","http://dsebd.org/displayCompany.php",$data);
 	$data = str_replace("_top","_blank",$data);
-	$data = preg_replace("/<img src='(.+)' border='0'>/",'<img border="0" src="'.JURI::root().'modules/mod_DhakaStockExchange/images/$1">',$data);
+	$data = preg_replace("/<img src='(.+)' border='0'>/",'<img border="0" src="'.JURI::root().'modules/mod_dhakastockexchange/images/$1">',$data);
 	$result .= "<li class='slide'>".$data."</li>";
 }
 $result .='</ul>
 </div>';
-require JModuleHelper::getLayoutPath('mod_DhakaStockExchange', $params->get('layout', 'default'));
+require JModuleHelper::getLayoutPath('mod_dhakastockexchange', $params->get('layout', 'default'));
 ?>

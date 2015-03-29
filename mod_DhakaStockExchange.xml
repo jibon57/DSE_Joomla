@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="2.5" client="site" method="upgrade">
-	<name>mod_DhakaStockExchange</name>
+<extension type="module" version="1.6" method="upgrade">
+	<name>mod_Dhakastockexchange</name>
+	<creationDate>2015-03-29</creationDate>
 	<author>Jibon Lawrence Costa</author>
-	<creationDate>Mar 29, 2015</creationDate>
-	<copyright>Copyright (C) HoiCoi Extension.</copyright>
-	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>jiboncosta57@gmail.com</authorEmail>
-	<authorUrl>www.hoicoimasti.com</authorUrl>
+	<authorUrl>http://extensions.hoicoimasti.com/</authorUrl>
+	<copyright>Copyright (C) 2015 Jibon Lawrence Costa Open Source Matters. All rights reserved.</copyright>	
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<version>3</version>
 	<description>Show Dhaka Stock Exchange Companies' share price index scroller in real time</description>
 	<files>
@@ -18,8 +18,13 @@
 		<filename>index.html</filename>
 		<filename>mod_dhakastockexchange.xml</filename>
 	</files>
-	
-
+	<languages>
+		<language tag="en-GB">language/en-GB.mod_dhakastockexchange.ini</language>
+    	<language tag="de-DE">language/de-DE.mod_dhakastockexchange.ini</language>            
+	</languages>
+	<params>
+		<param name="classname" type="text" default="" label="Class Name" description="Class Name Description" />
+	</params>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
@@ -52,5 +57,5 @@
 					label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
 			</fieldset>
 		</fields>
-	</config>
+	</config>			
 </extension>
