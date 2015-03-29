@@ -10,7 +10,7 @@
 	<version>3</version>
 	<description>Show Dhaka Stock Exchange Companies' share price index scroller in real time</description>
 	<files>
-		<filename module="mod_dhakastockexchange">mod_DhakaStockExchange.php</filename>
+		<filename module="mod_dhakastockexchange">mod_dhakastockexchange.php</filename>
 		<folder>tmpl</folder>
 		<folder>images</folder>
 		<folder>js</folder>
