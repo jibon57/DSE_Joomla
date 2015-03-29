@@ -10,7 +10,7 @@
 defined('_JEXEC') or die;
 if ($params->get("jquery") == "1") {
 	if (version_compare(JVERSION,'3','<')) {
-		JFactory::getDocument()->addScript(JURI::base().'modules/mod_dhakastockexchange/js/jquery-1.11.2.min.js');
+		JFactory::getDocument()->addScript(JURI::base().'modules/mod_dhakastockexchange/js/jquery.js');
 	}else {
 		JHtml::_('jquery.framework');
 	}
