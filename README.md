@@ -4,4 +4,4 @@ With this module you can easily show Dhaka Stock Exchange listed companies share
 
 <b>If you are using V2 then please uninstall that first & install new version</b>
 
-https://extensions.hoicoimasti.com/products/8-joomla-extension/8-dhaka-stock-exchange-share-price-index-scroller.html
+https://www.hoicoimasti.com/products/8-joomla-extension/8-dhaka-stock-exchange-share-price-index-scroller.html
