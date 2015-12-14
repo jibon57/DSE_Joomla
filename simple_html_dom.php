@@ -72,7 +72,7 @@ function file_get_html($url, $use_include_path = false, $context=null, $offset =
     // We DO force the tags to be terminated.
     $dom = new simple_html_dom(null, $lowercase, $forceTagsClosed, $target_charset, $stripRN, $defaultBRText, $defaultSpanText);
     // For sourceforge users: uncomment the next line and comment the retreive_url_contents line 2 lines down if it is not already done.
-    $contents = file_get_contents($url, $use_include_path, $context, $offset);
+    $contents = curl_download($url);
     // Paperg - use our own mechanism for getting the contents as we want to control the timeout.
     //$contents = retrieve_url_contents($url);
     if (empty($contents) || strlen($contents) > MAX_FILE_SIZE)
@@ -82,6 +82,42 @@ function file_get_html($url, $use_include_path = false, $context=null, $offset =
     // The second parameter can force the selectors to all be lowercase.
     $dom->load($contents, $lowercase, $stripRN);
     return $dom;
+}
+
+function curl_download($Url){
+ 
+    // is cURL installed yet?
+    if (!function_exists('curl_init')){
+        die('Sorry cURL is not installed!');
+    }
+ 
+    // OK cool - then let's create a new cURL resource handle
+    $ch = curl_init();
+ 
+    // Now set some options (most are optional)
+ 
+    // Set URL to download
+    curl_setopt($ch, CURLOPT_URL, $Url);
+ 
+    // User agent
+    curl_setopt($ch, CURLOPT_USERAGENT, "MozillaXYZ/1.0");
+ 
+    // Include header in result? (0 = yes, 1 = no)
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+ 
+    // Should cURL return or print out the data? (true = return, false = print)
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+ 
+    // Timeout in seconds
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+ 
+    // Download the given URL, and return output
+    $output = curl_exec($ch);
+ 
+    // Close the cURL resource, and free system resources
+    curl_close($ch);
+ 
+    return $output;
 }
 
 // get html dom from string
