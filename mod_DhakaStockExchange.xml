@@ -16,7 +16,7 @@
 		<folder>js</folder>
 		<filename>simple_html_dom.php</filename>
 		<filename>index.html</filename>
-		<filename>mod_dhakastockexchange.xml</filename>
+		<filename>mod_DhakaStockExchange.xml</filename>
 	</files>
 	<params>
 		<param name="classname" type="text" default="" label="Class Name" description="Class Name Description" />
